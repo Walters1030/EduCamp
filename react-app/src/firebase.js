@@ -3,13 +3,13 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDOh_dcanjf2ktZeXZakJn052mGc5Lz828",
-  authDomain: "moko-ebfe8.firebaseapp.com",
-  projectId: "moko-ebfe8",
-  storageBucket: "moko-ebfe8.firebasestorage.app",
-  messagingSenderId: "824466679178",
-  appId: "1:824466679178:web:105bb08ba27c7843e55473",
-  measurementId: "G-WKV0YXM3VL"
+apiKey: "AIzaSyC0_kCbTrXVmdiocpPO80dfR6rwIwQpAII",
+  authDomain: "educamp-cd15a.firebaseapp.com",
+  projectId: "educamp-cd15a",
+  storageBucket: "educamp-cd15a.firebasestorage.app",
+  messagingSenderId: "25168391197",
+  appId: "1:25168391197:web:5f78e318d57082c5f7eaf4",
+  measurementId: "G-HBT21HVY2V"
 };
 // ✅ Initialize Firebase FIRST
 const app = initializeApp(firebaseConfig);
