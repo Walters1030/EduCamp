@@ -1,0 +1,171 @@
+
+/* General Container */
+.product-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Desktop Layout */
+.content {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+    align-items: flex-start;
+}
+
+/* Image Section */
+.image-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+/* Main Image */
+.main-image {
+    width: 100%;
+    max-width: 540px;
+    height: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid #ddd;
+}
+
+.main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Thumbnails */
+.thumbnail-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    overflow-x: auto;
+    width: 100%;
+    justify-content: center;
+    padding: 10px;
+}
+
+.thumbnail {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    border: 2px solid transparent;
+    flex-shrink: 0;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.thumbnail:hover,
+.thumbnail.active {
+    transform: scale(1.1);
+    border-color: #007bff;
+}
+
+/* Details Section */
+.details-section {
+    width: 50%;
+    max-width: 500px;
+}
+
+.details-section h1 {
+    font-size: 2rem;
+    color: #333;
+}
+
+.details-section .price-text {
+    font-size: 1.8rem;
+    color: #d9534f;
+    font-weight: bold;
+}
+
+.details-section h5 {
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
+
+.link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+/* 📱 Mobile Responsive Layout */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        align-items: left;
+    }
+
+    /* Mobile: Main Image on Top */
+    .image-section {
+        width: 100%;
+        order: 1; /* Ensures image stays at the top */
+    }
+
+    .main-image {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Mobile: Thumbnails Below Image */
+    .thumbnail-container {
+        width: 100%;
+        overflow-x: auto;
+        display: flex;
+        justify-content: start;
+        padding: 10px;
+    }
+
+    .thumbnail {
+        width: 70px;
+        height: 70px;
+    }
+
+    /* 🔥 Mobile: Move Details Below */
+    .details-section {
+        width: 100%;
+        padding: 15px;
+        order: 2; /* Makes sure details appear below the image and thumbnails */
+        text-align: center; /* Center-align content */
+    }
+}
+
+
+@media (max-width: 768px) {
+    .content {
+      flex-direction: column !important;
+      display: flex !important;
+    }
+  
+    .image-section,
+    .details-section {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+  
+    .details-section {
+      order: 2 !important;
+      margin-top: 20px !important;
+    }
+  }

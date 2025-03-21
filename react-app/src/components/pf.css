@@ -1,0 +1,123 @@
+.vertical-table {
+    width: 100%;
+}
+
+.vertical-table th {
+    font-weight: bold;
+    text-align: left;
+    padding-right: 10px;
+}
+
+.vertical-table td {
+    text-align: left;
+    padding-left: 10px;
+}
+
+.vertical-table th, .vertical-table td {
+    padding: 10px;
+    border: 1px solid #dee2e6;
+}
+
+.vertical-table tr {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-2 {
+    margin-top: 1rem;
+}
+
+.m-3 {
+    margin: 1rem;
+}
+
+.p-3 {
+    padding: 1rem;
+}
+.product-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 20px;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.video-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.main-video {
+    width: 100%;
+    max-width: 800px;
+    background-color: black;
+}
+
+.video-player {
+    width: 100%;
+    height: auto;
+}
+
+.details-section {
+    position: sticky;
+    top: 0;
+    margin-left: 20px;
+    align-self: flex-start;
+    text-align: left;
+}
+
+.price-text {
+    margin-top: 2px;
+}
+
+button {
+    margin-top: 10px;
+}
+
+h1, h4, h5, h3 {
+    margin-left: 2px;
+}
+
+.inline-info {
+    display: flex;
+    align-items: center;
+}
+
+.inline-info h4, h3, h5:first-child {
+    margin-right: 10px;
+}
+
+.col {
+    background-color: #002f34;
+    color: #fff;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    padding: 1px 16px;
+    margin-right: 10px;
+    height: 35px;
+}
+
+.col:hover {
+    background: #068e18;
+    color: #fff;
+}
+
+.link {
+    color: black;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}

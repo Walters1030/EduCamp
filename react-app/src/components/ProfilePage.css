@@ -1,0 +1,653 @@
+/* Modern Styling with Circular Elements */
+.modern-profile-container {
+  max-width: 12000px;
+  margin: 0 auto;
+  background: #f8fafc;
+  min-height: 100vh;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.modern-product-card, 
+.modern-subject-card {
+  position: relative; /* Add this */
+  overflow: visible; /* Ensure dropdown is visible */
+}
+/* Cover Photo Section */
+.modern-cover-container {
+  position: relative;
+  margin-bottom: 100px;
+}
+
+.modern-cover-photo {
+  height: 400px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.modern-cover-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cover-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(transparent, rgba(0,0,0,0.4));
+}
+
+.modern-profile-header {
+  position: relative;
+  padding: 0 2rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+.modern-avatar-container {
+  position: absolute;
+  bottom: 10px;
+  left: 3.5rem;
+  border: 5px solid white;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+.modern-profile-avatar {
+  width: 170px;
+  height: 170px;
+  object-fit: cover;
+}
+
+.modern-profile-info {
+  padding-left: 200px;
+  padding-bottom: 1rem;
+}
+
+.modern-profile-name {
+  margin: 0;
+  font-size: 2.0rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-left: -10px;
+}
+
+.modern-profile-bio {
+  margin: 0.1rem 0 0;
+  color: #64748b;
+  font-size: 1.1rem;
+  margin-left: -10px;
+}
+
+/* Navigation Tabs */
+.modern-nav-container {
+  padding: 0 2rem;
+  margin-bottom: 2rem;
+}
+
+.modern-nav-items {
+  display: flex;
+  gap: 1rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.modern-nav-item {
+  padding: 1rem 2rem;
+  background: none;
+  border: none;
+  border-radius: 9999px;
+  font-size: 1rem;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modern-nav-item:hover {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.modern-nav-item.modern-active {
+  background: #10b981;
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(59,130,246,0.2);
+}
+
+/* Content Grid */
+.modern-content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 0 2rem 2rem;
+}
+
+/* Product Cards */
+.modern-product-card {
+  background: white;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.modern-product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+}
+
+.product-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+}
+
+.product-info {
+  padding: 1.5rem;
+  flex-grow: 1;
+}
+
+.product-title {
+  margin: 0 0 1rem;
+  color: #1e293b;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.price-badge {
+  background: #3b82f6;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  display: inline-block;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.product-category {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.product-description {
+  color: #475569;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+/* Subject Cards */
+.modern-subject-card {
+  background: white;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.subject-video, .subject-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+}
+
+.subject-info {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 150px; /* Ensures consistent height */
+}
+
+.subject-title {
+  margin: 0 0 1rem;
+  color: #1e293b;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.tutor-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tutor-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex-grow: 1;
+  min-width: 60%;
+  
+}
+
+.tutor-name {
+  font-size: 0.95rem;
+  color: #64748b;
+  white-space: normal; /* Allows text to wrap */
+  overflow-wrap: break-word;
+  max-width: 150px;
+}
+
+.grade-price-container {
+  display: flex;
+  justify-content: space-between; /* Grade stays left, Price moves right */
+  align-items: flex-start;
+  width: 100%; /* Ensure it takes full width */
+}
+
+.grade-badge {
+  margin-top: 0.5rem;
+  background: #10b981;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-align: center;
+  min-width: 100px;
+  margin-bottom: 5px;
+}
+.price-badge {
+  margin-top: 0.5rem;
+  background: #10b981;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-align: center;
+  min-width: 100px;
+}
+
+.price-badge {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+
+
+.subject-actions {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 1rem;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 1rem;
+}
+
+.action-button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 180px;
+  text-align: center;
+}
+
+.outline-button {
+  border: 2px solid #10b981;
+  color: #10b981;
+  background: transparent;
+}
+
+.outline-button:hover {
+  background: #10b981;
+  color: white;
+}
+
+.loading {
+  text-align: center;
+  padding: 50px;
+  font-size: 1.5rem;
+  color: #64748b;
+}
+
+
+/* __________________ */
+
+/* Certificates Section */
+/* Certificates Section */
+.certificates-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+@media (max-width: 768px) {
+  .certificates-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Certificates Section - Remove separate container styles */
+.certificate-card {
+  background: white;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+  /* Add card sizing to match other grid items */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Remove the certificates-container CSS */
+
+.certificate-card:hover {
+  transform: translateY(-3px);
+}
+
+.certificate-card-header {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.certificate-card-body {
+
+  padding: 1rem;
+  position: relative;
+}
+
+.certificate-thumbnail {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  background: #f5f5f5;
+  border-radius: 5px;
+}
+
+.certificate-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  color: #666;
+}
+
+.verification-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #4CAF50;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  font-size: 0.8rem;
+}
+
+/* Certificate Modal */
+.certificate-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.certificate-modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 90%;
+  max-height: 90vh;
+  overflow: auto;
+  position: relative;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.certificate-full-image {
+  max-width: 100%;
+  max-height: 70vh;
+  margin-bottom: 1rem;
+}
+
+.add-certificate-btn {
+  grid-column: 1 / -1;
+  padding: 1rem;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+  max-width: 200px;
+  align-content: right;
+}
+
+.add-certificate-btn:hover {
+  background: #0056b3;
+}
+
+/* Certificate Upload Modal */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.certificate-modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input[type="text"] {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.file-upload input[type="file"] {
+  display: none;
+}
+
+.file-input {
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #f8f9fa;
+}
+
+.form-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.form-actions button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form-actions button[type="submit"] {
+  background: #10b981;
+  color: white;
+}
+
+.form-actions button[type="submit"]:hover {
+  background: #10b981;
+}
+
+/* Certificate.css */
+
+.certificate-card {
+  position: relative;
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
+.cert-options-btn {
+  position: absolute;
+  top: -70px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #666;
+  /* Always visible */
+  visibility: visible; 
+}
+
+.cert-options-container {
+  position: absolute;
+  top: -50px;
+  right: 20px;
+  background: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 5px 0;
+  min-width: 120px;
+  z-index: 100;
+}
+
+.cert-options-container button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 8px 12px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #333;
+}
+
+.cert-options-container button:hover {
+  background-color: #f5f5f5;
+}
+/* Report Modal Styles */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.report-modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.report-reason-input {
+  width: 100%;
+  height: 150px;
+  margin: 1rem 0;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.report-modal-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.submit-btn, .cancel-btn {
+  padding: 0.6rem 1.2rem; /* Increased padding slightly */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem; /* Ensure same font size */
+  width: 400px; /* Enforce equal width */
+  text-align: center; /* Align text properly */
+}
+
+.submit-btn {
+  background-color: #ff4444;
+  color: white;
+}
+
+.submit-btn:hover {
+  background-color: #cc0000;
+}
+
+.cancel-btn {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.cancel-btn:hover {
+  background-color: #ddd;
+}

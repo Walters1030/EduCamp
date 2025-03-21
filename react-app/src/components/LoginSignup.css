@@ -1,0 +1,170 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  /* Full-screen background with blur effect */
+.bg-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://cdn.pixabay.com/photo/2024/06/30/10/28/sky-8862862_1280.png') no-repeat center center/cover;
+    filter: blur(3px); /* Blur effect */
+    z-index: -1;
+}
+
+/* Overlay to darken the background slightly for better readability */
+.bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Optional: Adds slight dark overlay */
+    z-index: -1;
+}
+
+  
+  .form-modal {
+    position: relative;
+    background: rgba(255, 255, 255, 0.65);
+    border-radius: 20px;
+    box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+    padding: 2rem; /* Keeps padding for content */
+    padding-top: 5rem; /* Adjusted top padding to make space for buttons */
+    margin: 2rem auto;
+    max-width: 450px;
+    width: 100%;
+}
+
+
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 0.75rem 1.25rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    margin-bottom: 0.8rem;
+  }
+  
+  .form-control:focus {
+    border-color: #57B846;
+    outline: none;
+  }
+  
+  .btn-primary {
+    background: #57B846;
+    color: white;
+    padding: 0.875rem 1.25rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background: #4aa63d;
+  }
+  
+  .form-toggle {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+}
+
+.form-toggle button {
+  color:#ffffff;
+    width: 50%;
+    float: left;
+    padding: 1em;
+    margin: 0;
+    margin-bottom: 1.5em;
+    border: none;
+    transition: 0.2s;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.form-toggle button:nth-child(1) {
+    border-bottom-right-radius: 8px;
+}
+
+.form-toggle button:nth-child(2) {
+    border-bottom-left-radius: 8px;
+}
+
+#login-toggle {
+    background: #57b846;
+    color: #fff;
+}
+
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 400px;
+    width: 90%;
+  }
+  
+  @media (max-width: 768px) {
+    .form-modal {
+    padding-top: 5em;
+      margin: 1rem auto;
+    }
+    
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    
+    .form-control {
+      padding: 0.75rem 1rem;
+    }
+    
+    .btn-primary {
+      padding: 0.75rem 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .form-toggle button {
+      font-size: 0.875rem;
+      padding: 0.75rem;
+    }
+    
+    .modal-content {
+      padding: 1.5rem;
+    }
+  }
