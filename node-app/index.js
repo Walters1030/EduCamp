@@ -806,7 +806,7 @@ app.post('/forgot-password', async (req, res) => {
   user.resetTokenExpiry = Date.now() + 3600000; // 1-hour expiry
   await user.save();
 
-  const resetLink = `http://localhost:3000/reset-password/${resetToken}`;
+  const resetLink = `https://educamp-1.onrender.com/reset-password/${resetToken}`;
   await transporter.sendMail({
     from: 'your-email@gmail.com',
     to: user.email,
