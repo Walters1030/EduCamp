@@ -100,7 +100,7 @@ function Addproduct() {
                     <input className="form-input file-input" type="file" multiple onChange={(e) => setpimage(Array.from(e.target.files))} />
                 </div>
 
-                <button onClick={handleApi} className="submit-btn">
+                <button onClick={handleApi} className="submit-btn-add">
                     Add Product
                 </button>
             </div>
