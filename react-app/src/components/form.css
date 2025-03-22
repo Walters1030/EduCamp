@@ -106,10 +106,10 @@
     background: #328433;
 }
 
-.submit-btn {
+.submit-btn-add {
     width: 100%;
     padding: 1rem;
-    background: #11ad00;
+    background: #ff3535;
     color: white;
     border: none;
     border-radius: 8px;
@@ -121,7 +121,7 @@
     letter-spacing: 0.5px;
 }
 
-.submit-btn:hover {
+.submit-btn-add:hover {
     background: #328433;
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
