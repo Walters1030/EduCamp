@@ -113,7 +113,7 @@ function Tutor() {
                     />
                 </div>
 
-                <button onClick={handleApi} className="submit-btn">
+                <button onClick={handleApi} className="submit-btn-add">
                     Submit Application
                 </button>
             </div>
