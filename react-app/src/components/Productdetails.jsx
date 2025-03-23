@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate,Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Header from "./Header2";
@@ -101,12 +101,12 @@ function Productdetails() {
                             <h2>Category: {product.category}</h2>
                             <h3 className="price-text">Rs. {product.price} /-</h3>
                             <Rating value={product.averageRating || 0} precision={0.5} readOnly />
-                            <h5>
-                                <b>Seller: </b>
-                                <a href={`/userprofile/${product.addedBy}`} className="link">
-                                    {addedByUsername}
-                                </a>
-                            </h5>
+<h5>
+  <b>Seller: </b>
+  <Link to={`/userprofile/${product.addedBy}`} className="link">
+    {addedByUsername}
+  </Link>
+</h5>
                             <h5><b>About:</b> {product.pdesc}</h5>
                             {!!localStorage.getItem("token") && product.addedBy &&
                                 <button className="btn col m-9" onClick={() => navigate("/chat", { state: { userId: product.addedBy } })}>
