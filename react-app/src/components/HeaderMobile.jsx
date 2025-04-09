@@ -24,6 +24,7 @@ import {
     Drawer,
     Backdrop
 } from '@mui/material';
+import SmartToyIcon from '@mui/icons-material/SmartToy';
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 
@@ -210,11 +211,20 @@ function Header(props) {
                     {searchActive ? <CloseIcon /> : <FaSearch />}
                 </IconButton>
                 {localStorage.getItem("token") && (
-  <Link to="/chat">
-    <IconButton sx={{ color: "#002f34" }} aria-label="chat">
-      <ChatIcon />
-    </IconButton>
-  </Link>
+  <>
+    <Link to="/chat">
+      <IconButton sx={{ color: "#002f34" }} aria-label="chat">
+        <ChatIcon />
+      </IconButton>
+    </Link>
+    {location.pathname !== "/study-chat" && (
+      <Link to="/study-chat">
+        <IconButton sx={{ color: "#002f34" }} aria-label="ai">
+          <SmartToyIcon />
+        </IconButton>
+      </Link>
+    )}
+  </>
 )}
 
                 <IconButton color="inherit" edge="end" onClick={toggleMobileMenu} sx={{color: '#000'}}>

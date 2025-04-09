@@ -7,7 +7,7 @@ import config from "./config";
 import './Animation.css';
 import ChatIcon from '@mui/icons-material/Chat';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-
+import SmartToyIcon from '@mui/icons-material/SmartToy';
 import {
     AppBar,
     Toolbar,
@@ -216,12 +216,22 @@ const location = useLocation();
               </IconButton>EduCamp</h1>
                 )}</Box>
 {localStorage.getItem("token") && (
-  <Link to="/chat">
-    <IconButton sx={{ color: "#002f34" }} aria-label="chat">
-      <ChatIcon />
-    </IconButton>
-  </Link>
+  <>
+    <Link to="/chat">
+      <IconButton sx={{ color: "#002f34" }} aria-label="chat">
+        <ChatIcon />
+      </IconButton>
+    </Link>
+    {location.pathname !== "/study-chat" && (
+      <Link to="/study-chat">
+        <IconButton sx={{ color: "#002f34" }} aria-label="ai">
+          <SmartToyIcon />
+        </IconButton>
+      </Link>
+    )}
+  </>
 )}
+
 
                 <IconButton color="inherit" edge="end" onClick={toggleMobileMenu} sx={{color: '#000'}}>
                     <MenuIcon />

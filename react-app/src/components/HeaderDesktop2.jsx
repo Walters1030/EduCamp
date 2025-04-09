@@ -22,6 +22,8 @@ import {
     Box,
     Modal,
   } from '@mui/material';
+  import SmartToyIcon from '@mui/icons-material/SmartToy';
+
 
 function Header(props,toggleSidebar ) {
     const navigate = useNavigate();
@@ -107,13 +109,24 @@ function Header(props,toggleSidebar ) {
         </div>
 
         <div className="header-right">
-{localStorage.getItem("token") && (
-  <Link to="/chat">
-    <IconButton sx={{ color: "#002f34" }} aria-label="chat">
-      <ChatIcon />
-    </IconButton>
-  </Link>
+        {localStorage.getItem("token") && (
+  <>
+    <Link to="/chat">
+      <IconButton sx={{ color: "#002f34" }} aria-label="chat">
+        <ChatIcon />
+      </IconButton>
+    </Link>
+
+    {location.pathname !== "/study-chat" && (
+      <Link to="/study-chat">
+        <IconButton sx={{ color: "#002f34" }} aria-label="study-ai">
+          <SmartToyIcon />
+        </IconButton>
+      </Link>
+    )}
+  </>
 )}
+
 
                 <div onClick={() => setShowOver(!showOver)} style={{
                     display: 'flex',

@@ -27,6 +27,7 @@ import MyTeaching from './components/MyTeaching';
 import UserProfile from './components/UserProfile';
 import ChatPage from './components/chat';
 import Dashboard from './components/Dashboard';
+import StudyChat from './components/AI';
 
 
 const router = createBrowserRouter([
@@ -102,6 +103,9 @@ const router = createBrowserRouter([
  },{
   path: "/admin",
   element: <Dashboard />
+ },{
+ path: "/study-chat",
+  element: <StudyChat />
  }
 ]);
 

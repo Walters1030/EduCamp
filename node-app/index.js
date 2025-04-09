@@ -14,6 +14,8 @@ const http = require("http");
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const fs = require('fs');
+// const bodyParser = require('body-parser');
+const { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } = require('@google/generative-ai');
 
 // Set up Express app
 const app = express();
@@ -1239,6 +1241,81 @@ app.delete("/reports/:id", async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 });
+
+const genAI = new GoogleGenerativeAI('AIzaSyBbVWhRmXFYLzjJNgHrQ7-sPOacfxE8ZTM');
+const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash-thinking-exp-01-21' });
+
+const generationConfig = {
+  temperature: 1,
+  topP: 0.95,
+  topK: 64,
+  maxOutputTokens: 1024,
+};
+
+const safetySettings = [
+  { category: HarmCategory.HARM_CATEGORY_HARASSMENT, threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH },
+  { category: HarmCategory.HARM_CATEGORY_HATE_SPEECH, threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH },
+  { category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT, threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH },
+  { category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT, threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH },
+];
+
+// Optional: Sanitize HTML or code tags
+function sanitizeInput(text) {
+  return text.replace(/<[^>]*>/g, '').substring(0, 8192);
+}
+
+// Restriction: Block non-study-related questions
+async function isStudyRelated(text) {
+  const tempModel = genAI.getGenerativeModel({ model: 'gemini-2.0-flash-thinking-exp-01-21' });
+
+  const result = await tempModel.generateContent(`Is the following question study or education-related? Just answer "yes" or "no".\n\n"${text}"`);
+
+
+  const answer = result.response.text().trim().toLowerCase();
+  return answer.startsWith('yes');
+}
+
+
+app.post('/analyze-text', async (req, res) => {
+  try {
+    const { inputValue } = req.body;
+    console.log("📥 Received text for analysis:", inputValue);
+    if (!inputValue) return res.status(400).json({ error: 'No input provided' });
+
+    const sanitizedInput = sanitizeInput(inputValue);
+
+    if (!isStudyRelated(sanitizedInput)) {
+      return res.json({ message: "❌ Only study-related queries are allowed.", confidence: 0 });
+    }
+
+    const chatSession = model.startChat({
+      generationConfig,
+      safetySettings,
+      history: [
+        {
+          role: 'user',
+          parts: [{ text: "You are a helpful study assistant. Only respond to study, education, or career guidance questions." }]
+        },
+        {
+          role: 'model',
+          parts: [{ text: "Understood. I will only assist with academic and educational queries." }]
+        }
+      ]
+      
+    });
+    
+
+    const result = await chatSession.sendMessage(sanitizedInput);
+    const responseText = result.response.text();
+
+    res.json({ message: responseText, confidence: 100 });
+    console.log("📤 Response sent:", responseText);
+  } catch (error) {
+    console.error('API Error:', error);
+    res.status(500).json({ error: 'Error processing your request' });
+  }
+});
+
 
 server.listen(4000, () => {
   console.log("Server running on port 4000");
