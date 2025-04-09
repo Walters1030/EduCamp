@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate,Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Header from "./Header2";
@@ -92,7 +92,12 @@ function Tutordetails() {
                 
                 <div className="tutor-info">
                     <h5><b>Grade:</b> {tutor.grade}</h5>
-                    <h5><b>Tutor:</b> <a href={`/userprofile/${tutor.addedBy}`} className="link">{addedByUsername}</a></h5>
+                    <h5>
+  <b>Tutor:</b>
+  <Link to={`/userprofile/${tutor.addedBy}`} className="link">
+    {addedByUsername}
+  </Link>
+</h5>
                     <h5><b>Year:</b> {tutor.year}</h5>
                 </div>
 

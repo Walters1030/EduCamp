@@ -11,7 +11,7 @@ const admin = require("firebase-admin");
 const serviceAccount = require("./serviceAccountKey.json");
 const { Server } = require("socket.io");
 const http = require("http");
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const saltRounds = 10;
 const fs = require('fs');
 // const bodyParser = require('body-parser');
@@ -808,7 +808,7 @@ app.post('/forgot-password', async (req, res) => {
   user.resetTokenExpiry = Date.now() + 3600000; // 1-hour expiry
   await user.save();
 
-  const resetLink = `http://localhost:3000/reset-password/${resetToken}`;
+  const resetLink = `https://educamp-1.onrender.com/reset-password/${resetToken}`;
   await transporter.sendMail({
     from: 'your-email@gmail.com',
     to: user.email,
