@@ -73,7 +73,7 @@ export default function StudyChat() {
       textAlign: 'center',
       color: '#777'
     }}>
-      <img src="/logo.png" alt="Assistant Logo" style={{ width: '80px', marginBottom: '1rem' }} />
+      <img src="/LOGO.png" alt="Assistant Logo" style={{ width: '80px', marginBottom: '1rem' }} />
       <p style={{ fontSize: '18px' }}>How can I help you?</p>
     </div>
   ) : (
