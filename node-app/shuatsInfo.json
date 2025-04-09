@@ -1,0 +1,138 @@
+{
+    "university": {
+      "name": "Sam Higginbottom University of Agriculture, Technology and Sciences",
+      "location": "Prayagraj, Uttar Pradesh, India",
+      "chancellor": {
+        "name": "Dr. J. A. Oliver",
+        "email": "chancellor@shuats.edu.in",
+        "contact": "040-27004649",
+        "fax": "040-27004546"
+      },
+      "vice_chancellor": {
+        "name": "Rev. Prof. (Dr.) Rajendra B. Lal",
+        "email": "vicechancellor@shuats.edu.in",
+        "contact": "0532-2684284, 2684290"
+      },
+      "administration": {
+        "additional_registrar": {
+          "name": "Prof. (Dr.) C. John Wesley",
+          "email": "addl_registrar@shuats.edu.in",
+          "contact": "0532-2684781, 2684281, 2684250",
+          "fax": "0532-2684394"
+        },
+        "controller_of_examinations": {
+          "name": "Prof. (Dr.) Sheen Cline Moses"
+        },
+        "joint_registrar_academics": {
+          "name": "Prof. (Dr.) Nisha Chacko"
+        },
+        "public_relation_officer": {
+          "name": "Dr. Rama Kant Dubey"
+        },
+        "finance_comptroller": {
+          "name": "Mr. Aaron Alexander"
+        },
+        "chief_proctor": {
+          "name": "Dr. Raghav Yadav"
+        },
+        "chief_warden_men": {
+          "name": "Dr. Ram Bharose"
+        },
+        "deputy_registrar_system_analyst": {
+          "name": "Dr. Amit S. Walters"
+        },
+        "deputy_registrar_scholarships": {
+          "name": "Er. Indresh B. Rajwade"
+        },
+        "joint_registrar_exams": {
+          "name": "Dr. Mohit James"
+        },
+        "additional_director_administration": {
+          "name": "Dr. Ameesh John Stephen"
+        }
+      },
+      "deans": {
+        "faculty_of_agriculture": {
+          "name": "Prof. (Dr.) Sheen Cline Moses",
+          "email": "dean_agriculture@shuats.edu.in",
+          "contact": "+91-532-2684394",
+          "fax": "+91-532-2684394"
+        },
+        "faculty_of_engineering_and_technology": {
+          "name": "Prof. (Dr.) W. Jeberson",
+          "email": "dean_enggtech@shuats.edu.in",
+          "contact": "+91-532-2684394",
+          "fax": "+91-532-2684394"
+        },
+        "faculty_of_science": {
+          "name": "Prof. (Dr.) Sheen Cline Moses",
+          "email": "dean_science@shuats.edu.in",
+          "contact": "+91-532-2684394",
+          "fax": "+91-532-2684394"
+        },
+        "faculty_of_theology": {
+          "name": "Prof. (Dr.) Sheen Cline Moses",
+          "email": "dean_theology@shuats.edu.in",
+          "contact": "+91-532-2684394",
+          "fax": "+91-532-2684394"
+        },
+        "faculty_of_management_humanities_and_social_sciences": {
+          "name": "Prof. (Dr.) Sheen Cline Moses",
+          "email": "dean_mhss@shuats.edu.in",
+          "contact": "+91-532-2684394",
+          "fax": "+91-532-2684394"
+        },
+        "faculty_of_health_sciences": {
+          "name": "Prof. (Dr.) Sheen Cline Moses",
+          "email": "dean_healthsciences@shuats.edu.in",
+          "contact": "+91-532-2684394",
+          "fax": "+91-532-2684394"
+        }
+      },
+      "departments": {
+        "department_of_agriculture_economics": {
+          "head_of_department": {
+            "name": "Dr. [Name]",
+            "email": "hod_agri_economics@shuats.edu.in",
+            "contact": "+91-532-2684394"
+          }
+        },
+        "department_of_anthropology_and_social_work": {
+          "head_of_department": {
+            "name": "Dr. [Name]",
+            "email": "hod_anthropology@shuats.edu.in",
+            "contact": "+91-532-2684394"
+          }
+        },
+        "department_of_english": {
+          "head_of_department": {
+            "name": "Dr. [Name]",
+            "email": "hod_english@shuats.edu.in",
+            "contact": "+91-532-2684394"
+          }
+        },
+        "department_of_arts_and_social_sciences": {
+          "head_of_department": {
+            "name": "Dr. [Name]",
+            "email": "hod_arts_socialsciences@shuats.edu.in",
+            "contact": "+91-532-2684394"
+          }
+        },
+        "department_of_agricultural_engineering": {
+          "head_of_department": {
+            "name": "Dr. [Name]",
+            "email": "hod_agri_engg@shuats.edu.in",
+            "contact": "+91-532-2684394"
+          }
+        },
+        "department_of_clinical_psychology": {
+          "head_of_department": {
+            "name": "Dr. [Name]",
+            "email": "hod_clinical_psychology@shuats.edu.in",
+            "contact": "+91-532-2684394"
+          }
+        }
+      }
+    }
+  }
+  
