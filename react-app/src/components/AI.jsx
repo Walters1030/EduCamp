@@ -21,28 +21,57 @@ export default function StudyChat() {
 
   const sendMessage = async () => {
     if (!input.trim()) return;
-
+  
     const userMsg = { role: 'user', text: input };
     setChat((prev) => [...prev, userMsg]);
     setInput('');
     setLoading(true);
-
+  
+    const lowerInput = input.toLowerCase();
+  
+    // SHUATS-specific keywords
+    const shuatsKeywords = [
+      'shuats', 'allahabad', 'chancellor', 'vice chancellor', 'registrar',
+      'placement', 'exam cell', 'library', 'campus', 'professor', 'dr.',
+      'hod', 'timetable', 'academic', 'faculty', 'department', 'student welfare',
+      'contact', 'helpdesk', 'website', 'office', 'controller', 'shuats', 'allahabad', 'r. b. lal', 'r. k. singh', 'academic affairs', 'exam cell', 'student welfare',
+      'research', 'placement', 'international relations', 'library', 'controller', 'dean', 'coordinator',
+      'director', 'professor', 'dr.', 'hod', 'timetable', 'faculty', 'department', 'helpdesk',
+      'dinesh tiwari', 'ankit srivastava', 'neha saxena', 'meera kumari', 'campus', 'shuats.edu.in'
+    ];
+  
+    const isShuatsRelated = shuatsKeywords.some(word => lowerInput.includes(word));
+  
     try {
-      const res = await fetch(`${config.API_BASE_URL}/analyze-text`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ inputValue: userMsg.text })
-      });
-
+      let res;
+  
+      if (isShuatsRelated) {
+        // Local SHUATS system prompt
+        res = await fetch(`${config.API_BASE_URL}/chat-shuats`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ inputValue: userMsg.text })
+        });
+      } else {
+        // Everything else goes here (general academic questions)
+        res = await fetch(`${config.API_BASE_URL}/analyze-text`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ inputValue: userMsg.text })
+        });
+      }
+  
       const data = await res.json();
       const aiMsg = { role: 'ai', text: data.message };
       setChat((prev) => [...prev, aiMsg]);
     } catch (error) {
       console.error('Error:', error);
+      setChat(prev => [...prev, { role: 'ai', text: 'Something went wrong. Please try again later.' }]);
     }
-
+  
     setLoading(false);
   };
+  
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') sendMessage();
