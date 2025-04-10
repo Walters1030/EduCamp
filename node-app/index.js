@@ -1316,6 +1316,129 @@ app.post('/analyze-text', async (req, res) => {
   }
 });
 
+const shuatsText = `
+You are assisting students from Sam Higginbottom University of Agriculture, Technology and Sciences (SHUATS). Here is the official information:
+
+Chancellor: Prof. (Dr.) R. B. Lal  
+Vice Chancellor: Prof. (Dr.) R. B. Lal  
+Registrar: Prof. (Dr.) R. K. Singh  
+Location: Allahabad, Uttar Pradesh  
+Website: https://shuats.edu.in
+
+Helpdesk:  
+📞 Phone: +91-532-2684281  
+📧 Email: info@shuats.edu.in
+
+Important Offices:  
+- Academic Affairs: Dr. S. P. Singh (Dean)  
+- Examination Cell: Dr. Anil Kumar (Controller)  
+- Student Welfare: Dr. P. K. Sharma (Dean)  
+- Research & Extension: Dr. R. N. Singh (Director)  
+- Placement Cell: Dr. N. K. Verma (Coordinator)  
+- International Relations: Dr. Rekha Joshi (Director)  
+- Library: Mr. Dinesh Tiwari (Chief Librarian)
+
+HODs by Department:  
+- Computer Science and Engineering: Dr. Ankit Srivastava  
+- Mechanical Engineering: Dr. Ravi Verma  
+- Electrical Engineering: Dr. Ajay Kumar  
+- Electronics and Communication: Dr. Ritesh Pandey  
+- Civil Engineering: Dr. Deepak Tiwari  
+- Information Technology: Dr. Neha Saxena  
+- Agriculture: Dr. Meera Kumari  
+- Horticulture: Dr. Anil Chauhan  
+- Forestry: Dr. Sanjay Rawat  
+- Biotechnology: Dr. Shweta Mishra  
+- Biochemistry: Dr. Rajeev Prasad  
+- Microbiology: Dr. Alka Singh  
+- Environmental Sciences: Dr. Sushil Kumar  
+- Business Administration (MBA): Dr. Nidhi Agarwal  
+- Education: Dr. Vinay Tiwari  
+- Theology: Dr. Prabhakar Samuel  
+- Economics: Dr. Sarita Yadav  
+- English: Dr. Ruchi Mishra  
+- Mass Communication: Dr. Vikas Khare  
+- Law: Dr. Anamika Sinha  
+
+Library Timings:  
+🕘 9:00 AM – 6:00 PM (Monday to Saturday)  
+
+Exam Office Email: examcell@shuats.edu.in  
+Placement Cell Email: placement@shuats.edu.in  
+
+This information is verified and meant to help students get accurate assistance for anything related to SHUATS academics, faculty, and university departments.
+`;
+
+function isShuatsRelated(input) {
+  const keywords = [
+    'shuats', 'allahabad', 'r. b. lal', 'r. k. singh', 'academic affairs', 'exam cell', 'student welfare',
+    'research', 'placement', 'international relations', 'library', 'controller', 'dean', 'coordinator',
+    'director', 'professor', 'dr.', 'hod', 'timetable', 'faculty', 'department', 'helpdesk',
+    'dinesh tiwari', 'ankit srivastava', 'neha saxena', 'meera kumari', 'campus', 'shuats.edu.in'
+  ];
+
+  const lower = input.toLowerCase();
+  return keywords.some(k => lower.includes(k));
+}
+
+app.post('/chat-shuats', async (req, res) => {
+  try {
+    const { inputValue } = req.body;
+    console.log("📥 Received text for SHUATS analysis:", inputValue);
+
+    if (!inputValue) {
+      console.warn("⚠️ No input provided");
+      return res.status(400).json({ error: 'No input provided' });
+    }
+
+    const sanitizedInput = sanitizeInput(inputValue);
+    console.log("🧼 Sanitized input:", sanitizedInput);
+
+    // Strict SHUATS-only check
+    if (!isShuatsRelated(sanitizedInput)) {
+      console.warn("❌ Rejected non-SHUATS query");
+      return res.json({ message: "❌ Only SHUATS-related queries are allowed.", confidence: 0 });
+    }
+
+    const chatSession = model.startChat({
+      generationConfig,
+      safetySettings,
+      history: [
+        {
+          role: 'user',
+          parts: [{
+            text:
+              "You are a helpful assistant for SHUATS students only. Answer queries strictly based on the following university information:\n\n" +
+              shuatsText
+          }]
+        },
+        {
+          role: 'model',
+          parts: [{ text: "Understood. I will only respond to queries about SHUATS based on the given data." }]
+        }
+      ]
+    });
+
+    let responseText = '';
+    try {
+      const result = await chatSession.sendMessage(sanitizedInput);
+      responseText = result.response.text();
+      console.log("✅ Model response:", responseText);
+    } catch (modelErr) {
+      console.error("❌ Model error:", modelErr.message, modelErr.stack);
+      return res.status(500).json({
+        error: 'Failed to process SHUATS query',
+        detail: modelErr.message
+      });
+    }
+
+    res.json({ message: responseText, confidence: 100 });
+    console.log("📤 Response sent to client");
+  } catch (error) {
+    console.error('❌ API Error:', error.message, error.stack);
+    res.status(500).json({ error: 'Error processing your request' });
+  }
+});
 
 server.listen(4000, () => {
   console.log("Server running on port 4000");
