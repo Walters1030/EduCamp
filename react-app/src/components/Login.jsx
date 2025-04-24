@@ -37,7 +37,7 @@ function LoginSignup() {
                         localStorage.setItem('token', res.data.token);
                         localStorage.setItem('userId', res.data.userId);
                         
-                        if (res.data.userId === "669baa0914fbefdd45324186") {
+                        if (res.data.userId === "6809e390c53774cdef5c594d") {
                             localStorage.setItem('type', 'admin');
                             navigate('/admin'); // Navigate to admin panel
                         } else {
