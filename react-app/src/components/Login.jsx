@@ -51,29 +51,38 @@ function LoginSignup() {
     };
     
 
-    const handleSignup = async () => {
-        if (!pid || !username || !password || !mobile || !email || !selectedDepartment) {
-            setErrorMessage("All fields are required!");
-            return;
-        }
+const handleSignup = async () => {
+    if (!pid || !username || !password || !mobile || !email || !selectedDepartment) {
+        setErrorMessage("All fields are required!");
+        return;
+    }
 
-        if (!/^\d{10}$/.test(mobile)) {
-            setErrorMessage("Mobile number must be exactly 10 digits!");
-            return;
-        }
+    if (!/^\d{10}$/.test(mobile)) {
+        setErrorMessage("Mobile number must be exactly 10 digits!");
+        return;
+    }
 
-        try {
-            const pendingUser = { pid, username, password, mobile, email, department: selectedDepartment };
-            localStorage.setItem("pendingUser", JSON.stringify(pendingUser));
+    const allowedDomains = ['shuats.edu.in', 'shiats.edu.in'];
+    const emailDomain = email.split('@')[1]?.toLowerCase();
 
-            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-            await sendEmailVerification(userCredential.user);
-            alert("Verification email sent! Please verify your email.");
-            navigate('/verify-email');
-        } catch (error) {
-            setErrorMessage(error.message);
-        }
-    };
+    if (!allowedDomains.includes(emailDomain)) {
+        setErrorMessage("Only SHUATS emails are allowed!");
+        return;
+    }
+
+    try {
+        const pendingUser = { pid, username, password, mobile, email, department: selectedDepartment };
+        localStorage.setItem("pendingUser", JSON.stringify(pendingUser));
+
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        await sendEmailVerification(userCredential.user);
+        alert("Verification email sent! Please verify your email.");
+        navigate('/verify-email');
+    } catch (error) {
+        setErrorMessage(error.message);
+    }
+};
+
 
     const handleForgotPassword = () => {
         axios.post(`${config.API_BASE_URL}/forgot-password`, { email })
