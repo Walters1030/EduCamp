@@ -11,7 +11,7 @@ const admin = require("firebase-admin");
 const serviceAccount = require("./serviceAccountKey.json");
 const { Server } = require("socket.io");
 const http = require("http");
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const fs = require('fs');
 // const bodyParser = require('body-parser');
@@ -1275,7 +1275,6 @@ async function isStudyRelated(text) {
   return answer.startsWith('yes');
 }
 
-
 app.post('/analyze-text', async (req, res) => {
   try {
     const { inputValue } = req.body;
@@ -1338,27 +1337,89 @@ Important Offices:
 - International Relations: Dr. Rekha Joshi (Director)  
 - Library: Mr. Dinesh Tiwari (Chief Librarian)
 
-HODs by Department:  
-- Computer Science and Engineering: Dr. Ankit Srivastava  
-- Mechanical Engineering: Dr. Ravi Verma  
-- Electrical Engineering: Dr. Ajay Kumar  
-- Electronics and Communication: Dr. Ritesh Pandey  
-- Civil Engineering: Dr. Deepak Tiwari  
-- Information Technology: Dr. Neha Saxena  
-- Agriculture: Dr. Meera Kumari  
-- Horticulture: Dr. Anil Chauhan  
-- Forestry: Dr. Sanjay Rawat  
-- Biotechnology: Dr. Shweta Mishra  
-- Biochemistry: Dr. Rajeev Prasad  
-- Microbiology: Dr. Alka Singh  
-- Environmental Sciences: Dr. Sushil Kumar  
-- Business Administration (MBA): Dr. Nidhi Agarwal  
-- Education: Dr. Vinay Tiwari  
-- Theology: Dr. Prabhakar Samuel  
-- Economics: Dr. Sarita Yadav  
-- English: Dr. Ruchi Mishra  
-- Mass Communication: Dr. Vikas Khare  
-- Law: Dr. Anamika Sinha  
+Faculty	Dean
+Faculty of Agriculture	Prof. (Dr.) Biswarup Mehera
+Faculty of Enginerring & Technology	Prof. (Dr.) Deepak Lal
+Faculty of Health Sciences 	Dr. Shekhar
+Faculty of Management, Humanities and Social Sciences	Dr. Ashish Samarpit Noel
+Faculty of Science	Prof. (Dr.) Suchit Ashish John
+Faculty of Theology	Rev.(Dr.) Y. Hesheto Chishi
+	
+	
+	
+	
+	
+College	Dean
+Allahabad School of Education	Dr. (Mrs) Samala Suneetha Masih
+Chitamber School of Humanities & Social Science	Prof. (Dr.) Ashish Alexander
+Christian College of Nursing	Dr. Shekhar
+College of Forestry	Prof. (Dr.) Antony Joseph Raj 
+Ethelind College of Home Science	Prof. (Dr.) Mrs. Anshu
+Gospel & Plough Institute of Theology	Rev.(Dr.) Y. Hesheto Chishi
+Jacob Institute of Biotechnology and Bio-Engineering	Prof. Dr. ir. Jonathan A. Lal
+Joseph School of Business Studies	Prof. (Dr.) Mrs. Shabana Mazhar
+Makino School of Continuing & Non Formal Education	Dr. Teruo Miura
+Naini Agriculture Institute	Prof. (Dr.) Biswarup Mehera
+Office of Dean, P.G. Studies	Prof. (Dr.) Deepak Lal
+School of Film & Mass Communication	Prof. (Dr.) Ashish Alexander
+Shalom Institute of Health and Allied Sciences	Dr. Shekhar
+Vaugh Institute  of Agricultural Engineering & Technology	Prof. (Dr.) Ashok Tripathi
+Warner College of Dairy Technology	Dr. (Mrs) Dorcus Masih
+	
+	
+	
+	
+Department	Head
+Department of Agricultural Economics	Dr. Ashish Samarpit Noel
+Department of Agricultural Extension & Communication	Prof. (Dr.) Ms. Jahanara
+Department of Agronomy	Prof. (Dr.) Joy Dawson
+Department of Anthropology & Social Work	Prof. (Dr.) Ms. Jahanara
+Department of Arts and Social Sciences	Prof. (Dr.) Mrs. Nishi Tripathi
+Department of Biochemistry & Biochemical Engineering	Prof. (Dr.) Alok Milton. Lall
+Department of Biological Sciences	Prof. (Dr.) Suchit Ashish John
+Department of Business Studies	Prof. (Dr.) Mrs. Enid Masih
+Department of Chemistry	Prof. (Dr.) Amit Chattree
+Department of Civil Engineering	Mr. Dheeraj Kumar 
+Department of Clinical Laboratory Science	Dr. (Mrs) Sapna Smith Lal
+Department of Commerce	Dr. Akshat Dubey
+Department of Computational Biology & Bioinformatics	Dr. Prashant Ankur Jain
+Department of Computer Science & Information Technology	Prof. (Dr.) W. Jeberson
+Department of Electrical  Engineering	Dr. (Mrs) Jyoti Shrivastava
+Department of Electronics & Communication Engineering	Dr. Anil Kumar
+Department of English	Prof. (Dr.) Ashish Alexander
+Department of Environmental Sciences and Natural Resource Management	Prof. (Dr.) Ram Bharose
+Department of Extension Education and Communication Management	Prof. (Dr.) Sanghamitra Mohapatra
+Department of Family Resource Management and Consumer Science	Prof. (Dr.) Nisha Chacko
+Department of Farm Machinery & Power Engineering	Prof. (Dr.) Sheen Cline Moses
+Department of Food, Nutrition and Public Health	Prof. (Dr.) Mrs. Ritu Prakash Dubey
+Department of Forensic Science	Prof. (Dr.) Suchit Ashish John
+Department of Forest Biology, Tree Improvement And Wild Life Sciences	Dr. Afaq Majid Wani
+Department of Forest Producuts and Utilization	Prof. (Dr.) Biswarup Mehera
+Department of Genetics & Plant Breeding	Prof. (Dr.) Vaidurya Pratap Sahi
+Department of Horticulture	Prof. (Dr.) Vijay Bahadur
+Department of Human Development and Family Studies	Prof. (Dr.) Mrs. Anshu
+Department of Industrial Microbiology	Prof. (Dr.) Mrs. Rubina Lawrence
+Department of Irrigation and Drainage Engineering	Prof. (Dr.) Ir. Derrick Mario Denis
+Department of Library & Information Science	Dr. (Mrs) Manisha Srivastava
+Department of Mathematics & Statistics	Prof. (Dr.) Ajit Paul
+Department of Mechanical Engineering	Prof. (Dr.) Ms. Anshuka Srivastava
+Department of Molecular & Cellular Engineering	Prof. (Dr.) Mrs. Rubina Lawrence
+Department of Pharmaceutical Science	Prof. (Dr.) Mrs. Amita Verma
+Department of Physical Education	Mr. Ashish Massey
+Department of Physics	Prof. (Dr.) Sarita Khandka
+Department of Physiotherapy	Dr. Sanjay Kumar
+Department of Processing and food Engineering	Prof. (Dr.) Ajay Kumar Singh
+Department of Psychology	Prof. (Dr.) Mrs. Nishi Tripathi
+Department of Public Health	Dr. Shekhar
+Department of Radiological Imaging Technology	Dr. Harish Kumar Bajaj
+Department of Silviculture And Agroforestry	Prof. (Dr.) Neelam Khare
+Department of Soil and Water Conservation Engineering	Prof. (Dr.) Ir. Derrick Mario Denis
+Department of Soil Science and Agricultural Chemistry	Prof. (Dr.) Tarence Thomas
+Department of Teacher Education	Dr. (Mrs) Samala Suneetha Masih
+Department of Textiles and Apparel Designing	Prof. (Dr.) Mrs. Ekta Sharma
+Department of Tissue Engineering	Dr. Gurudayal Ram Guru
+
+
 
 Library Timings:  
 🕘 9:00 AM – 6:00 PM (Monday to Saturday)  
